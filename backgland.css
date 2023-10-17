@@ -5,6 +5,10 @@ body{
  }
 
  div.imgt {
+    position:absolute;
+    top:1em;
+    left:20em;
+    padding: 0px;
  }
  p.title {
      font-family: 'Arial Black','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
@@ -26,3 +30,14 @@ body{
      color:#cccccc;
      background-color:#FFFFCC;
  }
+ div.sub {
+    position:absolute;
+    top:4em;
+    right:3em;
+    border:1px solid;
+    padding:10px;
+    line-height:120%;
+    font-family: 'Arial Black','ヒラギノ角ゴシック','Hiragino Sans','メイリオ', Meiryo,'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN',sans-serif;
+    color: black;
+    background-color: white;
+}
