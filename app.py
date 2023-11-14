@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 
 
 app = Flask(__name__)
@@ -8,6 +8,14 @@ app = Flask(__name__, static_folder="templates", static_url_path='')
 @app.route('/', methods=['GET'])
 def index():
 	return render_template('index.html',  title="Form sample",  message="お名前は？")
+
+app.route('/jyunni', methods=['GET'])
+def get_jyunni():
+    jyunni_data = {
+        'p_jyunni': '1位　オリックス・バファローズ 、2位　千葉ロッテマリーンズ、3位　福岡ソフトバンクホークス、4位　楽天ゴールデンイーグルス、5位　埼玉西武ライオンズ、6位　北海道日本ハムファイターズ',
+        's_jyunni': '1位　阪神タイガース 、2位　広島東洋カープ、3位　横浜DeNAベイスターズ、4位　読売ジャイアンツ、5位　東京ヤクルトスワローズ、6位　中日ドラゴンズ',
+    }
+    return jsonify(jyunni_data), 200
 
 @app.route('/', methods=['POST'])
 def   form():
