@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>野球の部屋 API</title>
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.52.3/swagger-ui.css">
+</head>
+<body>
+  <div id="swagger-ui"></div>
+
+  <script src="https://unpkg.com/swagger-ui-dist@3.52.3/swagger-ui-bundle.js"></script>
+  <script src="https://unpkg.com/swagger-ui-dist@3.52.3/swagger-ui-standalone-preset.js"></script>
+  <script>
+    window.onload = function() {
+      SwaggerUIBundle({
+        spec: {
+          openapi: "3.0.0",
+          info: {
+            version: "1.0.0",
+            title: "野球の部屋 API",
+          },
+          paths: {
+            "/jyunni": {
+              get: {
+                summary: "パリーグ、セリーグそれぞれの順位とチーム成績を取得するAPI。",
+                responses: {
+                  200: {
+                    description: "HTTPステータスコード200と以下の情報を含むJSONオブジェクトを返します。",
+                    content: {
+                      "application/json": {
+                        schema: {
+                          type: "object",
+                          properties: {
+                            p_jyunni: {
+                              type: "string",
+                              example: "1位　オリックス・バファローズ 、2位　千葉ロッテマリーンズ、3位　福岡ソフトバンクホークス、4位　楽天ゴールデンイーグルス、5位　埼玉西武ライオンズ、6位　北海道日本ハムファイターズ",
+                            },
+                            s_jyunni:{
+                              type: "string",
+                              example: "1位　阪神タイガース 、2位　広島東洋カープ、3位　横浜DeNAベイスターズ、4位　読売ジャイアンツ、5位　東京ヤクルトスワローズ、6位　中日ドラゴンズ",
+                            },
+                          },
+                        },
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+        dom_id: "#swagger-ui",
+        presets: [SwaggerUIBundle.presets.apis],
+        layout: "BaseLayout",
+      })
+    }
+  </script>
+</body>
+</html>
