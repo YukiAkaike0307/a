@@ -1,0 +1,58 @@
+<?php
+//実質取得はココ
+$game_infos = @json_decode(file_get_contents('http://botch.herokuapp.com/v0/scores/' . $date));
+$title = date('Y年m月d日', strtotime($date)) . 'の<br />プロ野球';
+?>
+
+<?php if ($game_infos === null):?>
+<table class="game_table">
+    <tr>
+        <th style="width:130px;border: none;"><?php echo $title;?></th>
+        <td>APIの取得に失敗しました</td>
+    </tr>
+</table>
+<?php elseif ($game_infos === array()):?>
+<table class="game_table">
+    <tr>
+        <th style="width:130px;"><?php echo $title;?></th>
+        <td>中止</td>
+    </tr>
+</table>
+<?php else:?>
+    <?php foreach ($game_infos->data as $game_info):?>
+    <table class="game_table">
+        <tr>
+            <th><?php echo $title;?></th>
+            <td><?php echo $game_info->away->team;?></td>
+            <td><?php echo $game_info->away->score;?></td>
+            <td>
+                <?php
+                    $info = '';
+                    if ($game_info->info->inning == 'yet'){
+                        $info .=  $game_info->info->start . '～';
+                    }elseif ($game_info->info->inning == 'stop'){
+                        $info .= '中止';
+                    }elseif ($game_info->info->inning == 'end'){
+                        $info .= '試合終了';
+                    }elseif (preg_match('/^([0-9]{1,2})([t,b])$/' , $game_info->info->inning ,$inning)){
+                        $info .= $inning[1] . '回';
+                        if ($inning[2] == 't'){
+                            $info .= '表';
+                        } else {
+                            $info .= '裏';
+                        }
+                    } else {
+                        //それ以外はとりあえずそのまま突っ込んでおく
+                        $info .= $game_info->info->inning;
+                    }
+                ?>
+                <?php echo $info;?>
+            </td>
+            <td><?php echo $game_info->home->score;?></td>
+            <td><?php echo $game_info->home->team;?></td>
+        </tr>
+    </table>
+    <?php endforeach;?>
+
+<?php endif;?>
+

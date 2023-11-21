@@ -8,10 +8,10 @@ con = MySQLdb.connect(
 cur = con.cursor()
 
 cur.execute("""
-                CREATE TABLE 順位.list
+                CREATE TABLE senshu.list
             (id MEDIUMINT NOT NULL AUTO_INCREMENT,
              name VARCHAR(30),
-             sex CHAR(1),
+             teamename CHAR(1),
              PRAIMARY KEY(id))
             """)
 
