@@ -1,10 +1,52 @@
-<br><big>日本シリーズ</big><br>
-<h2 style="color:gold">阪神タイガース38年ぶり2度目の優勝!!!</h2><br>
-阪神タイガース 4 vs 3 オリックスバファローズ<br>
-<br>第１戦 神〇 8 - 0 オ●
-<br>第２戦 神● 0 - 8 オ〇
-<br>第３戦 神● 4 - 5 オ〇
-<br>第４戦 神〇 4 - 3 オ●
-<br>第５戦 神〇 6 - 2 オ●
-<br>第６戦 神● 1 - 5 オ〇
-<br>第７戦 神〇 8 - 0 オ●<br>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>日本シリーズ</title>
+    <style>
+        img {
+            width: 100px;
+        }
+
+        table {
+            width: 50%;
+        }
+
+        td {
+            margin: 10px;
+            padding: 10px;
+        }
+
+        .wrapper {
+            width: 800px;
+        }
+
+        .toku {
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrapper">
+        <img src="images/success.png" style="float:left;">
+        <h1 style="text-align: center">野球の部屋</h1><br>
+        <h2 style="border-bottom:5px solid #ffcc00;">日本シリーズ</h2>
+        <h4>祝!!!阪神タイガース38年ぶりの日本一!</h4>
+        <table border="1" class="toku">
+            <tr>
+                <th>試合</th>
+                <th>阪神タイガース</th>
+                <th>オリックスバファローズ</th>
+            </tr>
+            {% for result in results %}
+                <tr>
+                    <td>第{{ result[1] }}戦</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+</body>
+</html>

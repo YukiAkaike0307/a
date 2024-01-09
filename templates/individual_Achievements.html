@@ -1,0 +1,797 @@
+<html>
+<head>
+<style>
+img{
+	width:100px;
+}
+.back1{
+  background: url(images/s.png) no-repeat 10px center / 50px auto;
+  padding: 10px 10px 10px 70px;
+}
+
+.back2{
+  background: url(images/p.png) no-repeat 10px center / 50px auto;
+  padding: 10px 10px 10px 70px;
+}
+
+table{
+	width:50%;
+}
+td{
+	margin:10px;
+	padding:10px;
+}
+.wrapper{
+	width:800px;
+}
+.excitingNote{
+	font-style:italic;
+	font-weight:bold;
+}
+
+.s{
+    margin: auto;
+}
+</style>
+</head>
+
+<div id="wrapper">
+    <img src="images/success.png" style="float:left;">
+    <h1 style="text-align: center">野球の部屋</h1><br>
+    <h2 style="border-bottom:5px solid #4daee5;" class="back2">パリーグ</h2>
+
+    <h2>打率</h2>
+
+    <table border="6" class="s" id="batting-average-table1">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Batting Average</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>頓宮 裕真</td>
+            <td>.307</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>近藤 健介</td>
+            <td>.303</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>柳田 悠岐</td>
+            <td>.299</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore5('batting-average-table1')">さらに表示</button>
+
+    <h2>ホームラン</h2>
+
+    <table border="7" class="s" id="home-run-table1">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Home Runs</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>近藤 健介</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>浅村 栄斗</td>
+            <td>26</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>ポランコ</td>
+            <td>26</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore6('home-run-table1')">さらに表示</button>
+
+    <h2>防御率</h2>
+
+    <table border="8" class="s" id="earned-run-average-table1">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Earned Run Average</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>山本 由伸</td>
+            <td>1.21</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>髙橋 光成</td>
+            <td>2.21</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>宮城 大弥</td>
+            <td>2.27</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore7('earned-run-average-table1')">さらに表示</button>
+
+    <h2>勝数</h2>
+
+    <table border="9" class="s" id="wins-number-table1">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Wins Number</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>山本 由伸</td>
+            <td>16</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>平良 海馬</td>
+            <td>11</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>山﨑 福也</td>
+            <td>11</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore8('wins-number-table1')">さらに表示</button>
+
+    <h2>セーブ数</h2>
+
+    <table border="10" class="s" id="saves-number-table1">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Saves Number</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>松井 裕樹</td>
+            <td>39</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>益田 直也</td>
+            <td>36</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>平野 佳寿</td>
+            <td>29</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore9('saves-number-table1')">さらに表示</button>
+
+    <!-- Repeat the pattern for other categories -->
+
+    <script>
+        function loadMore5(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '森 友哉', value: '.294' },
+                { rank: 5, name: '松本 剛', value: '.276' },
+                { rank: 6, name: '紅林 弘太郎', value: '.275' },
+                { rank: 7, name: '浅村 栄斗', value: '.274' },
+                { rank: 7, name: '中村 晃', value: '.274' },
+                { rank: 9, name: '中川 圭太', value: '.269' },
+                { rank: 10, name: '万波 中正', value: '.265' },
+                { rank: 11, name: '辰己 涼介', value: '.263' },
+                { rank: 12, name: '外崎 修汰', value: '.260' },
+                { rank: 13, name: 'マキノン', value: '.259' },
+                { rank: 14, name: '小深田 大翔', value: '.258' },
+                { rank: 15, name: '今宮 健太', value: '.255' },
+                { rank: 16, name: 'マルティネス', value: '.246' },
+                { rank: 17, name: '宗 佑磨', value: '.245' },
+                { rank: 18, name: 'ポランコ', value: '.242' },
+                { rank: 19, name: '安田 尚憲', value: '.238' },
+                { rank: 20, name: '野村 佑希', value: '.236' },
+                { rank: 21, name: '山口 航輝', value: '.235' },
+                { rank: 22, name: '中村 奨吾', value: '.220' }
+            ];
+
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+        function loadMore6(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '万波 中正', value: '25' },
+                { rank: 5, name: '柳田 悠岐', value: '22' },
+                { rank: 6, name: '森 友哉', value: '18' },
+                { rank: 7, name: '中村 剛也', value: '17' },
+                { rank: 8, name: '頓宮 裕真', value: '16' },
+                { rank: 8, name: '杉本 裕太郎', value: '16' },
+                { rank: 10, name: 'マキノン', value: '15' },
+                { rank: 10, name: 'マルティネス', value: '15' },
+                { rank: 12, name: '山口 航輝', value: '14' },
+                { rank: 13, name: '野村 佑希', value: '13' },
+                { rank: 13, name: '栗原 陵矢', value: '13' },
+                { rank: 15, name: '外崎 修汰', value: '12' },
+                { rank: 15, name: '中川 圭太', value: '12' },
+                { rank: 15, name: 'フランコ', value: '12' },
+                { rank: 15, name: 'ゴンザレス', value: '12' },
+                { rank: 20, name: '中村 奨吾', value: '11' },
+                { rank: 20, name: '小郷 裕哉', value: '10' },
+                { rank: 20, name: '甲斐 拓也', value: '10' },
+                { rank: 20, name: '清宮 幸太郎', value: '10' },
+                { rank: 23, name: '辰己 涼介', value: '9' },
+                { rank: 23, name: '今宮 健太', value: '9' },
+                { rank: 23, name: '安田 尚憲', value: '9' },
+                { rank: 23, name: '角中 勝也', value: '9' },
+                { rank: 23, name: 'セデーニョ', value: '9' },
+                { rank: 28, name: '紅林 弘太郎', value: '8' },
+                { rank: 29, name: '岡 大海', value: '7' },
+                { rank: 29, name: '島内 宏明', value: '7' },
+                { rank: 29, name: '栗山 巧', value: '7' },
+                { rank: 32, name: '岡島 豪郎', value: '6' },
+                { rank: 32, name: '若月 健矢', value: '6' },
+                { rank: 32, name: '加藤 豪将', value: '6' },
+                { rank: 32, name: '渡部 健人', value: '6' },
+                { rank: 36, name: '中村 晃', value: '5' },
+                { rank: 36, name: '小深田 大翔', value: '5' },
+                { rank: 36, name: '三森 大貴', value: '5' },
+                { rank: 36, name: '鈴木 大地', value: '5' },
+                { rank: 36, name: 'ペイトン', value: '5' },
+                { rank: 36, name: '伊藤 裕季也', value: '5' },
+                { rank: 36, name: '江越 大賀', value: '5' },
+                { rank: 43, name: '佐藤 都志也', value: '4' },
+                { rank: 43, name: '愛斗', value: '4' },
+                { rank: 43, name: '阿部 寿樹', value: '4' },
+                { rank: 43, name: '長谷川 信哉', value: '4' },
+                { rank: 43, name: 'アルカンタラ', value: '4' },
+                { rank: 43, name: 'ハンソン', value: '4' },
+                { rank: 49, name: '松本 剛', value: '3' },
+                { rank: 49, name: '	藤原 恭大', value: '3' }
+            ];
+
+            
+
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+        function loadMore7(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '平良 海馬', value: '2.40' },
+                { rank: 5, name: '則本 昂大', value: '2.61' },
+                { rank: 6, name: '加藤 貴之', value: '2.87' },
+                { rank: 7, name: '上沢 直之', value: '2.96' },
+                { rank: 8, name: '伊藤 大海', value: '3.46' },
+                { rank: 9, name: '小島 和哉', value: '3.47' }
+            ];
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+        function loadMore8(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '小島 和哉', value: '10' },
+                { rank: 4, name: '髙橋 光成', value: '10' },
+                { rank: 4, name: '宮城 大弥', value: '10' },
+                { rank: 4, name: '種市 篤暉', value: '10' },
+                { rank: 4, name: '今井 達也', value: '10' },
+                { rank: 4, name: '有原 航平', value: '10' },
+                { rank: 10, name: '上沢 直之', value: '9' },
+                { rank: 10, name: '隅田 知一郎', value: '9' },
+                { rank: 10, name: '岸 孝之', value: '9' },
+                { rank: 10, name: '山下 舜平大', value: '9' },
+                { rank: 14, name: '則本 昂大', value: '8' },
+                { rank: 14, name: '西野 勇士', value: '8' },
+                { rank: 14, name: '和田 毅', value: '8' },
+                { rank: 14, name: '渡辺 翔太', value: '8' },
+                { rank: 18, name: '加藤 貴之', value: '7' },
+                { rank: 18, name: '伊藤 大海', value: '7' },
+                { rank: 18, name: '田中 将大', value: '7' },
+                { rank: 18, name: '佐々木 朗希', value: '7' },
+                { rank: 22, name: '松本 航', value: '6' },
+                { rank: 22, name: '東浜 巨', value: '6' },
+                { rank: 22, name: '早川 隆久', value: '6' },
+                { rank: 22, name: '田嶋 大樹', value: '6' },
+                { rank: 22, name: '北山 亘基', value: '6' },
+                { rank: 22, name: '鈴木 健矢', value: '6' },
+                { rank: 22, name: '東 晃平', value: '6' },
+                { rank: 29, name: '荘司 康誠', value: '5' },
+                { rank: 29, name: '大関 友久', value: '5' },
+                { rank: 29, name: '板東 湧梧', value: '5' },
+                { rank: 29, name: '藤井 皓哉', value: '5' },
+                { rank: 29, name: '酒居 知史', value: '5' },
+                { rank: 34, name: '石川 柊太', value: '4' },
+                { rank: 34, name: 'メルセデス', value: '4' },
+                { rank: 34, name: '上原 健太', value: '4' },
+                { rank: 34, name: '内 星龍', value: '4' },
+                { rank: 34, name: '平井 克典', value: '4' },
+                { rank: 34, name: 'ポンセ', value: '4' },
+                { rank: 34, name: '小木田 敦也', value: '4' },
+                { rank: 34, name: '津森 宥紀', value: '4' },
+                { rank: 34, name: '宇田川 優希', value: '4' },
+                { rank: 34, name: 'ワゲスパック', value: '4' },
+                { rank: 34, name: '西村 天裕', value: '4' },
+                { rank: 34, name: '増田 達至', value: '4' },
+                { rank: 34, name: '澤村 拓一', value: '4' },
+                { rank: 47, name: '美馬 学', value: '3' },
+                { rank: 47, name: 'スチュワート・ジュニア', value: '3' },
+                { rank: 47, name: 'オスナ', value: '3' },
+                { rank: 47, name: 'カスティーヨ', value: '3' }
+            ];
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+        function loadMore9(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: 'オスナ', value: '26' },
+                { rank: 5, name: '田中 正義', value: '25' },
+                { rank: 6, name: '増田 達至', value: '19' },
+                { rank: 7, name: '山﨑 颯一郎', value: '9' },
+                { rank: 8, name: 'クリスキー', value: '7' },
+                { rank: 9, name: 'モイネロ', value: '5' },
+                { rank: 10, name: '山岡 泰輔', value: '3' },
+                { rank: 10, name: '青山 美夏人', value: '3' },
+                { rank: 10, name: '澤村 拓一', value: '3' },
+                { rank: 10, name: '森脇 亮介', value: '3' },
+                { rank: 14, name: '宇田川 優希', value: '2' },
+                { rank: 14, name: 'ワゲスパック', value: '2' },
+                { rank: 14, name: '甲斐野 央', value: '2' },
+                { rank: 14, name: '玉井 大翔', value: '2' },
+                { rank: 14, name: '澤田 圭佑', value: '2' },
+                { rank: 19, name: 'メルセデス', value: '1' },
+                { rank: 19, name: 'ペルドモ', value: '1' },
+                { rank: 19, name: '渡辺 翔太', value: '1' },
+                { rank: 19, name: '阿部 翔太', value: '1' },
+                { rank: 19, name: '鈴木 翔天', value: '2' },
+                { rank: 19, name: '酒居 知史', value: '1' },
+                { rank: 15, name: '横山 陸人', value: '1' },
+                { rank: 19, name: '宮西 尚生', value: '1' },
+                { rank: 19, name: '田村 伊知郎', value: '1' },
+                { rank: 19, name: '水上 由伸', value: '1' },
+                { rank: 19, name: '石川 直也', value: '1' },
+                { rank: 19, name: '豆田 泰志', value: '1' },
+                { rank: 19, name: '東條 大樹', value: '1' }
+                ];
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+    </script>
+
+
+<div id="wrapper">
+    <h2 style="border-bottom:5px solid #4aaf6e;" class="back1">セリーグ</h2>
+
+    <h2>打率</h2>
+
+    <table border="1" class="s" id="batting-average-table">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Batting Average</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>宮﨑 敏郎</td>
+            <td>.326</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>西川 龍馬</td>
+            <td>.305</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>サンタナ</td>
+            <td>.300</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore('batting-average-table')">さらに表示</button>
+
+    <h2>ホームラン</h2>
+
+    <table border="2" class="s" id="home-run-table">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Home Runs</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>岡本 和真</td>
+            <td>41</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>村上 宗隆</td>
+            <td>31</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>牧 秀悟</td>
+            <td>29</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore1('home-run-table')">さらに表示</button>
+
+    <h2>防御率</h2>
+
+    <table border="3" class="s" id="earned-run-average-table">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Earned Run Average</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>村上 頌樹</td>
+            <td>1.75</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>東 克樹</td>
+            <td>1.98</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>床田 寛樹</td>
+            <td>2.19</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore2('earned-run-average-table')">さらに表示</button>
+
+    <h2>勝数</h2>
+
+    <table border="4" class="s" id="wins-number-table">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Wins Number</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>東 克樹</td>
+            <td>16</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>戸郷 翔征</td>
+            <td>12</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>大竹 耕太郎</td>
+            <td>12</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore3('wins-number-table')">さらに表示</button>
+
+    <h2>セーブ数</h2>
+
+    <table border="5" class="s" id="saves-number-table">
+        <!-- Initial rows displayed -->
+        <tr>
+            <th>Rank</th>
+            <th>Name</th>
+            <th>Saves Number</th>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>岩崎 優</td>
+            <td>35</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>田口 麗斗</td>
+            <td>33</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>マルティネス</td>
+            <td>32</td>
+        </tr>
+        <!-- Add more player rows as needed -->
+    </table>
+
+    <button class="load-more-btn" onclick="loadMore4('saves-number-table')">さらに表示</button>
+
+    <!-- Repeat the pattern for other categories -->
+
+    <script>
+        function loadMore(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '牧 秀悟', value: '.293' },
+                { rank: 5, name: '大島 洋平', value: '.289' },
+                { rank: 6, name: '大山 悠輔', value: '.288' },
+                { rank: 6, name: '坂本 勇人', value: '.288' },
+                { rank: 8, name: '近本 光司', value: '.285' },
+                { rank: 8, name: '中野 拓夢', value: '.285' },
+                { rank: 10, name: '大城 卓三', value: '.281' },
+                { rank: 11, name: '岡林 勇希', value: '.279' },
+                { rank: 12, name: '岡本 和真', value: '.278' },
+                { rank: 13, name: '秋山 翔吾', value: '.274' },
+                { rank: 14, name: '木浪 聖也', value: '.267' },
+                { rank: 15, name: '坂倉 将吾', value: '.266' },
+                { rank: 16, name: '佐野 恵太', value: '.264' },
+                { rank: 17, name: '佐藤 輝明', value: '.263' },
+                { rank: 18, name: '関根 大気', value: '.261' },
+                { rank: 19, name: '菊池 涼介', value: '.258' },
+                { rank: 20, name: '村上 宗隆', value: '.256' },
+                { rank: 20, name: '吉川 尚輝', value: '.256' },
+                { rank: 22, name: '細川 成也', value: '.253' },
+                { rank: 22, name: 'オスナ', value: '.253' },
+                { rank: 24, name: '桑原 将志', value: '.252' },
+                { rank: 25, name: '石川 昂弥', value: '.242' },
+                { rank: 26, name: 'ノイジー', value: '.240' },
+                { rank: 27, name: '長岡 秀樹', value: '.227' }
+            ];
+
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+        function loadMore1(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '細川 成也', value: '24' },
+                { rank: 4, name: '佐藤 輝明', value: '24' },
+                { rank: 6, name: 'オスナ', value: '23' },
+                { rank: 7, name: '坂本 勇人', value: '22' },
+                { rank: 8, name: '宮﨑 敏郎', value: '20' },
+                { rank: 9, name: '大山 悠輔', value: '19' },
+                { rank: 9, name: 'デビッドソン', value: '19' },
+                { rank: 11, name: 'サンタナ', value: '18' },
+                { rank: 11, name: '丸 佳浩', value: '18' },
+                { rank: 13, name: '大城 卓三', value: '16' },
+                { rank: 14, name: '中田 翔', value: '15' },
+                { rank: 15, name: '山田 哲人', value: '14' },
+                { rank: 15, name: 'ソト', value: '14' },
+                { rank: 17, name: '佐野 恵太', value: '13' },
+                { rank: 17, name: '石川 昂弥', value: '13' },
+                { rank: 19, name: '坂倉 将吾', value: '12' },
+                { rank: 19, name: '堂林 翔太', value: '12' },
+                { rank: 21, name: 'ブリンソン', value: '11' },
+                { rank: 21, name: '末包 昇大', value: '11' },
+                { rank: 23, name: '秋広 優人', value: '10' },
+                { rank: 23, name: '森下 翔太', value: '10' },
+                { rank: 25, name: 'ノイジー', value: '9' },
+                { rank: 25, name: '西川 龍馬', value: '9' },
+                { rank: 27, name: '近本 光司', value: '8' },
+                { rank: 27, name: '塩見 泰隆', value: '8' },
+                { rank: 29, name: '桑原 将志', value: '7' },
+                { rank: 29, name: '吉川 尚輝', value: '7' },
+                { rank: 31, name: 'ビシエド', value: '6' },
+                { rank: 31, name: '小園 海斗', value: '6' },
+                { rank: 31, name: '内山 壮真', value: '6' },
+                { rank: 31, name: 'マクブルーム', value: '6' },
+                { rank: 31, name: '田中 広輔', value: '6' },
+                { rank: 31, name: '長野 久義', value: '6' },
+                { rank: 31, name: 'ウォーカー', value: '6' },
+                { rank: 38, name: '菊池 涼介', value: '5' },
+                { rank: 38, name: '木下 拓哉', value: '5' },
+                { rank: 38, name: '濱田 太貴', value: '5' },
+                { rank: 38, name: '戸柱 恭孝', value: '5' },
+                { rank: 38, name: 'カリステ', value: '5' },
+                { rank: 38, name: 'ミエセス', value: '5' },
+                { rank: 44, name: '関根 大気', value: '4' },
+                { rank: 44, name: '秋山 翔吾', value: '4' },
+                { rank: 44, name: '中村 悠平', value: '4' },
+                { rank: 44, name: '大田 泰示', value: '4' },
+                { rank: 48, name: '岡林 勇希', value: '3' },
+                { rank: 48, name: '長岡 秀樹', value: '3' },
+                { rank: 48, name: '門脇 誠', value: '3' }
+            ];
+
+            
+
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+        function loadMore2(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '戸郷 翔征', value: '2.38' },
+                { rank: 5, name: '伊藤 将司', value: '2.39' },
+                { rank: 6, name: '柳 裕也', value: '2.44' },
+                { rank: 7, name: '九里 亜蓮', value: '2.53' },
+                { rank: 7, name: '髙橋 宏斗', value: '2.53' },
+                { rank: 9, name: '山﨑 伊織', value: '2.72' },
+                { rank: 10, name: '今永 昇太', value: '2.80' },
+                { rank: 11, name: '小川 泰弘', value: '3.38' },
+                { rank: 12, name: '小笠原 慎之介', value: '3.59' }
+            ];
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+        function loadMore3(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '床田 寛樹', value: '11' },
+                { rank: 5, name: '山﨑 伊織', value: '10' },
+                { rank: 5, name: '伊藤 将司', value: '10' },
+                { rank: 5, name: '村上 頌樹', value: '10' },
+                { rank: 5, name: '小川 泰弘', value: '10' },
+                { rank: 5, name: 'バウアー', value: '10' },
+                { rank: 10, name: '森下 暢仁', value: '9' },
+                { rank: 11, name: '九里 亜蓮', value: '8' },
+                { rank: 11, name: '才木 浩人', value: '8' },
+                { rank: 11, name: '西 勇輝', value: '8' },
+                { rank: 11, name: '青柳 晃洋', value: '8' },
+                { rank: 15, name: '小笠原 慎之介', value: '7' },
+                { rank: 15, name: '今永 昇太', value: '7' },
+                { rank: 15, name: '髙橋 宏斗', value: '7' },
+                { rank: 15, name: 'サイスニード', value: '7' },
+                { rank: 15, name: 'ターリー', value: '7' },
+                { rank: 20, name: '大瀬良 大地', value: '6' },
+                { rank: 20, name: 'グリフィン', value: '6' },
+                { rank: 20, name: '小澤 怜史', value: '6' },
+                { rank: 20, name: 'ピーターズ', value: '6' },
+                { rank: 24, name: '涌井 秀章', value: '5' },
+                { rank: 24, name: 'メンデス', value: '5' },
+                { rank: 24, name: '大貫 晋一', value: '5' },
+                { rank: 24, name: '西 純矢', value: '5' },
+                { rank: 24, name: '赤星 優志', value: '5' },
+                { rank: 24, name: '上茶谷 大河', value: '5' },
+                { rank: 24, name: '勝野 昌慶', value: '5' },
+                { rank: 31, name: '柳 裕也', value: '4' },
+                { rank: 31, name: '石田 健大', value: '4' },
+                { rank: 31, name: '高橋 奎二', value: '4' },
+                { rank: 31, name: '横川 凱', value: '4' },
+                { rank: 31, name: '菅野 智之', value: '4' },
+                { rank: 31, name: '吉村 貢司郎', value: '4' },
+                { rank: 31, name: '平良 拳太郎', value: '4' },
+                { rank: 31, name: '森 翔平', value: '4' },
+                { rank: 31, name: '矢崎 拓也', value: '4' },
+                { rank: 31, name: '伊勢 大夢', value: '4' },
+                { rank: 31, name: '菊地 大稀', value: '4' },
+                { rank: 31, name: 'アンダーソン', value: '4' },
+                { rank: 31, name: '島本 浩也', value: '4' },
+                { rank: 31, name: '大江 竜聖', value: '4' },
+                { rank: 45, name: '濵口 遥大', value: '3' },
+                { rank: 45, name: 'ガゼルマン', value: '3' },
+                { rank: 45, name: '島内 颯太郎', value: '3' },
+                { rank: 45, name: '岩崎 優', value: '3' },
+                { rank: 45, name: '福谷 浩司', value: '3' },
+                { rank: 45, name: '栗林 良吏', value: '3' }
+            ];
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+        function loadMore4(tableId) {
+            const table = document.getElementById(tableId);
+            table.classList.remove('hidden');
+
+            // Simulate fetching new data from the server
+            // Replace this with actual data fetching logic
+            const newData = [
+                { rank: 4, name: '矢崎 拓也', value: '24' },
+                { rank: 5, name: '山﨑 康晃', value: '20' },
+                { rank: 6, name: '栗林 良吏', value: '18' },
+                { rank: 7, name: '森原 康平', value: '17' },
+                { rank: 8, name: '中川 皓太', value: '14' },
+                { rank: 8, name: '大勢', value: '14' },
+                { rank: 10, name: '湯浅 京己', value: '8' },
+                { rank: 11, name: '藤嶋 健人', value: '4' },
+                { rank: 12, name: 'ウェンデルケン', value: '3' },
+                { rank: 13, name: '島内 颯太郎', value: '2' },
+                { rank: 13, name: '伊勢 大夢', value: '2' },
+                { rank: 15, name: 'ビーディ', value: '1' },
+                { rank: 15, name: '勝野 昌慶', value: '1' },
+                { rank: 15, name: '菊地 大稀', value: '1' },
+                { rank: 15, name: 'ターリー', value: '1' },
+                { rank: 15, name: '加治屋 蓮', value: '1' },
+                { rank: 15, name: 'Ｋ．ケラー', value: '1' },
+                { rank: 15, name: '鍵谷 陽平', value: '1' },
+                { rank: 15, name: '松本 竜也', value: '1' }
+                ];
+            // Add new rows based on the fetched data
+            newData.forEach(data => {
+                const newRow = `<tr><td>${data.rank}</td><td>${data.name}</td><td>${data.value}</td></tr>`;
+                table.innerHTML += newRow;
+            });
+        }
+
+    </script>
+
+</body>
+</html>
