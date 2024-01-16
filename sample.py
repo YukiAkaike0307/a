@@ -9,7 +9,7 @@ con = MySQLdb.connect(
 cur = con.cursor()
 
 cur.execute("""
-    CREATE TABLE a_list
+    CREATE TABLE acount_list
     (
         id MEDIUMINT NOT NULL AUTO_INCREMENT,
         name VARCHAR(30),
